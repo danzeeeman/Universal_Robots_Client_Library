@@ -21,7 +21,6 @@
 #pragma once
 
 #include <assert.h>
-#include <endian.h>
 #include <inttypes.h>
 #include <array>
 #include <bitset>
@@ -29,6 +28,7 @@
 #include <cstring>
 #include <string>
 #include <memory>
+#include "ur_client_library/endian.h"
 #include "ur_client_library/log.h"
 #include "ur_client_library/types.h"
 #include "ur_client_library/exceptions.h"

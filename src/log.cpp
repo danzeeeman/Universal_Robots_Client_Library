@@ -31,6 +31,7 @@
 #include "ur_client_library/log.h"
 #include "ur_client_library/default_log_handler.h"
 #include <cstdarg>
+#include <stdio.h>
 
 namespace urcl
 {
@@ -115,13 +116,13 @@ void log(const char* file, int line, LogLevel level, const char* fmt, ...)
     va_list args_copy;
     va_copy(args_copy, args);
 
-    size_t characters = 1 + std::vsnprintf(buffer.get(), buffer_size, fmt, args);
+    size_t characters = 1 + vsnprintf(buffer.get(), buffer_size, fmt, args);
 
     if (characters >= buffer_size)
     {
       buffer_size = characters + 1;
       buffer.reset(new char[buffer_size]);
-      std::vsnprintf(buffer.get(), buffer_size, fmt, args_copy);
+      vsnprintf(buffer.get(), buffer_size, fmt, args_copy);
     }
 
     va_end(args);

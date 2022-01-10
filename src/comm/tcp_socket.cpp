@@ -21,10 +21,11 @@
  */
 
 #include <arpa/inet.h>
-#include <endian.h>
+#include "ur_client_library/endian.h"
 #include <netinet/tcp.h>
 #include <unistd.h>
 #include <cstring>
+#include <vector>
 
 #include "ur_client_library/log.h"
 #include "ur_client_library/comm/tcp_socket.h"
@@ -45,7 +46,7 @@ void TCPSocket::setOptions(int socket_fd)
 {
   int flag = 1;
   setsockopt(socket_fd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(int));
-  setsockopt(socket_fd, IPPROTO_TCP, TCP_QUICKACK, &flag, sizeof(int));
+  setsockopt(socket_fd, IPPROTO_TCP, TCP_NODELAY, &flag, sizeof(int));
 
   if (recv_timeout_ != nullptr)
   {

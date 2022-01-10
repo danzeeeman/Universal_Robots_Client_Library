@@ -34,7 +34,7 @@
 #include "ur_client_library/types.h"
 #include "ur_client_library/log.h"
 #include <cstring>
-#include <endian.h>
+#include "ur_client_library/endian.h"
 #include <condition_variable>
 
 namespace urcl
